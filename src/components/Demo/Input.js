@@ -1,7 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { updateText } from "../../actions/index";
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { updateText } from '../../actions/index';
 
 const Input = ({ dispatch, input }) => (
   <div>
@@ -22,7 +22,6 @@ Input.propTypes = {
   dispatch: PropTypes.func.isRequired,
   input: PropTypes.string.isRequired
 };
-
 
 const mapStateToProps = state => ({
   input: state.input

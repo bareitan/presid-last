@@ -1,15 +1,20 @@
 import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-const Output = () => (
-  <div>
+const Output = ({ output }) => (
+  <div className="white">
     <p className="has-text-weight-bold">Output text:</p>
-    <textarea
-      className="textarea"
-      rows="20"
-      placeholder="e.g. Anonymized text will show here as you type."
-      readOnly
-    />
+    <div className="box white output">{output}</div>
   </div>
 );
 
-export default Output;
+Output.propTypes = {
+  output: PropTypes.string.isRequired
+};
+
+const mapStateToProps = state => ({
+  output: state.input
+});
+
+export default connect(mapStateToProps)(Output);

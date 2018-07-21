@@ -15,8 +15,13 @@ const Header = () => (
       </NavLink>
     </div>
     <div className="navbar-menu">
-      <div className="navbar-start" activeClassName="is-active">
-        <NavLink className="navbar-item" to="/" exact>
+      <div className="navbar-start">
+        <NavLink
+          className="navbar-item"
+          to="/"
+          exact
+          activeClassName="is-active"
+        >
           Home
         </NavLink>
         <NavLink className="navbar-item" to="/demo" activeClassName="is-active">

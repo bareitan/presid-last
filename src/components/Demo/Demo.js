@@ -1,8 +1,8 @@
-import React from "react";
-import "./Demo.css";
-import Input from "./Input";
-import Output from "./Output";
-import Findings from "./Findings";
+import React from 'react';
+import './Demo.css';
+import Input from './Input';
+import Output from './Output';
+import SortedFindings from '../../containers/SortedFindings';
 
 const Demo = () => (
   <div>
@@ -12,15 +12,15 @@ const Demo = () => (
           <Input />
         </div>
       </div>
-      <div className="column is-half">
-        <div className="box">
+      <div className="test column is-half">
+        <div className="box output">
           <Output />
         </div>
       </div>
     </div>
     <div className="column">
       <div className="box">
-        <Findings />
+        <SortedFindings />
       </div>
     </div>
   </div>

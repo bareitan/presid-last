@@ -2,7 +2,9 @@
   "name": "presid",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://bareitan.github.io/predemo",
   "dependencies": {
+    "axios": "^0.18.0",
     "bulma": "^0.7.1",
     "eslint-plugin-css-modules": "^2.7.5",
     "eslint-plugin-jsx-a11y": "^6.1.1",
@@ -16,6 +18,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
     "video-react": "^0.13.0"
   },
   "lint-staged": {
@@ -33,7 +36,9 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive"
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build"
   },
   "devDependencies": {
     "eslint": "4.19.1",
@@ -43,6 +48,7 @@
     "eslint-plugin-import": "2.12.0",
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "7.9.1",
+    "gh-pages": "^1.2.0",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
     "prettier": "^1.13.7"

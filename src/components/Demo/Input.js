@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { updateText } from '../../actions/index';
+import { updateText, fetchAnonimyzed, fetchAnalyzed } from '../../actions/index';
 
 const Input = ({ dispatch, input }) => (
   <div>
@@ -9,10 +9,12 @@ const Input = ({ dispatch, input }) => (
     <textarea
       onChange={e => {
         dispatch(updateText(e.target.value));
+        dispatch(fetchAnalyzed(e.target.value));
+        dispatch(fetchAnonimyzed(e.target.value));
       }}
       className="textarea"
       placeholder="e.g. Copy an example text"
-      rows="20"
+      rows="5"
       value={input}
     />
   </div>

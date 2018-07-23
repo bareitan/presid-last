@@ -21,7 +21,7 @@ const Findings = ({ onSortClick, findings }) => (
             <a onClick={() => onSortClick(FindingsSorting.SORT_CERTAINITY)}>
               <span className="icon">
                 <i className="fas fa-sort fa-fw" />
-                Certainity
+                Score
               </span>
             </a>
           </th>
@@ -44,8 +44,8 @@ const Findings = ({ onSortClick, findings }) => (
         </tr>
       </thead>
       <tbody>
-        {findings.map(finding => (
-          <FindingItem key={finding.id} finding={finding} />
+        {findings.map((finding,id) => (
+          <FindingItem key={id} finding={finding} />
         ))}
       </tbody>
     </table>
@@ -56,10 +56,13 @@ Findings.propTypes = {
   onSortClick: PropTypes.func.isRequired,
   findings: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      certainity: PropTypes.number.isRequired,
+      probability: PropTypes.number.isRequired,
       text: PropTypes.string.isRequired,
-      line: PropTypes.string.isRequired
+      location: PropTypes.shape({
+        start: PropTypes.number.isRequired,
+        end: PropTypes.number.isRequired,
+        length: PropTypes.number.isRequired
+      })
     })
   ).isRequired
 };

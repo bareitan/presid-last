@@ -6,7 +6,6 @@ import Home from './components/Home/Home';
 import Demo from './components/Demo/Demo';
 import Header from './components/Header/Header';
 import { setFindings } from './actions/index';
-
 import rootReducer from './reducers/index';
 import './App.css';
 

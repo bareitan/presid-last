@@ -1,5 +1,5 @@
 const initialState = {
-  findings: [],
+  text: '',
   fetching: false,
   fetched: false,
   error: null
@@ -7,16 +7,16 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_ANALYZE_PENDING': {
+    case 'FETCH_ANON_PENDING': {
       return {...state, fetching: true}
     }
-    case 'FETCH_ANALYZE_REJECTED': {
+    case 'FETCH_ANON_REJECTED': {
       return {...state, fetching: false, error: action.payload}
     }
-    case 'FETCH_ANALYZE_FULFILLED':
+    case 'FETCH_ANON_FULFILLED':
       return {
         ...state,
-        findings: action.payload.data.analyzeResults || [],
+        text: action.payload.data.text,
         fetching: false,
         fetched: true,
         error: null

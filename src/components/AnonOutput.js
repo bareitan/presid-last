@@ -1,20 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 
-const Output = ({ anonText }) => (
+const AnonOutput = ({ anonText }) => (
   <div className="white">
     <p className="has-text-weight-bold">Output text:</p>
     <div className="box white output">{anonText}</div>
   </div>
 );
 
-Output.propTypes = {
-  anonText: PropTypes.string.isRequired
-};
-
 const mapStateToProps = state => ({
-  anonText: state.anonText
+  anonText: state.anonText.text
 });
 
-export default connect(mapStateToProps)(Output);
+export default connect(mapStateToProps)(AnonOutput);

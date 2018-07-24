@@ -1,9 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import FindingItem from './FindingItem';
-import { FindingsSorting } from '../../actions/index';
+import { FindingsSorting } from '../actions/findingsSorting';
+import { connect } from 'react-redux';
+import { setFindingsSorting } from '../actions/findingsSorting';
 
-const Findings = ({ onSortClick, findings }) => (
+const FindingsList = ({ onSortClick, findings }) => (
   <div>
     <p className="has-text-weight-bold">Findings: </p>
     <table className="table is-striped is-narrow is-hoverable is-fullwidth">
@@ -37,7 +38,7 @@ const Findings = ({ onSortClick, findings }) => (
             <a onClick={() => onSortClick(FindingsSorting.SORT_LINE)}>
               <span className="icon">
                 <i className="fas fa-sort fa-fw" />
-                Line
+                Start:End
               </span>
             </a>
           </th>
@@ -51,20 +52,32 @@ const Findings = ({ onSortClick, findings }) => (
     </table>
   </div>
 );
+const getSortedFindings = (findings, findingsSorting) => {
+  switch (findingsSorting) {
+    case FindingsSorting.SORT_TYPE:
+      return [...findings].sort((a, b) => (a.field.name > b.field.name ? 1 : -1));
+    case FindingsSorting.SORT_CERTAINITY:
+      return [...findings].sort((a, b) => (a.probability < b.probability ? 1 : -1));
+    case FindingsSorting.SORT_TEXT:
+      return [...findings].sort((a, b) => (a.text > b.text ? 1 : -1));
+    case FindingsSorting.SORT_LINE:
+      return [...findings].sort((a, b) => (a.location.start > b.location.start ? 1 : -1));
+    default:
+      throw new Error(`Unknown filter: $(findingsSorting)`);
+  }
+}
 
-Findings.propTypes = {
-  onSortClick: PropTypes.func.isRequired,
-  findings: PropTypes.arrayOf(
-    PropTypes.shape({
-      probability: PropTypes.number.isRequired,
-      text: PropTypes.string.isRequired,
-      location: PropTypes.shape({
-        start: PropTypes.number.isRequired,
-        end: PropTypes.number.isRequired,
-        length: PropTypes.number.isRequired
-      })
-    })
-  ).isRequired
-};
+const mapStateToProps = state => ({
+  findings: getSortedFindings(state.findings.findings, state.findingsSorting)
+});
 
-export default Findings;
+const mapDispatchToProps = dispatch => ({
+  onSortClick: sorting => {
+    dispatch(setFindingsSorting(sorting));
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FindingsList);

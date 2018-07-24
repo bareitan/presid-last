@@ -1,5 +1,11 @@
 export const UPDATE_TEXT = 'UPDATE_TEXT';
-export const UPDATE_ANON_TEXT = 'UPDATE_ANON_TEXT';
+
+export const RECEIVE_ANON = 'RECEIVE_ANON';
+export const FETCH_ANON_START = 'FETCH_ANON_START';
+export const FETCH_ANON_ERROR = 'FETCH_ANON_ERROR';
+
+
 export const SET_SORTING = 'SET_SORTING';
 export const SET_FINDINGS = 'SET_FINDINGS';
 export const SET_FILTERS = 'SET_FILTERS';
+export const ITEMS_ARE_LOADING = 'ITEMS_ARE_LOADING';

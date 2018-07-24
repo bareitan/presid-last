@@ -1,32 +1,32 @@
 import React from 'react';
-import './Demo.css';
-import Input from './Input';
-import Output from './Output';
-import Filters from './Filters';
-import SortedFindings from '../../containers/SortedFindings';
+import './DemoPage.css';
+import UserText from './UserText';
+import AnonOutput from './AnonOutput';
+import FiltersList from './FiltersList';
+import FindingsList from './FindingsList';
 
-const Demo = () => (
+const DemoPage = () => (
   <div>
     <div className="columns">
       <div className="column is-2 box">
-        <Filters />
+        <FiltersList />
       </div>
       <div className="column">
         <div className="columns">
           <div className="column is-half">
             <div className="box">
-              <Input />
+              <UserText />
             </div>
           </div>
           <div className="test column is-half">
             <div className="box output">
-              <Output />
+              <AnonOutput />
             </div>
           </div>
         </div>
         <div className="column">
           <div className="box">
-            <SortedFindings />
+            <FindingsList />
           </div>
         </div>
       </div>
@@ -34,4 +34,4 @@ const Demo = () => (
     </div>
 );
 
-export default Demo;
+export default DemoPage;

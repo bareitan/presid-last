@@ -1,5 +1,5 @@
 const initialState = {
-  findings: [],
+  filters: ['Credit_Card','Phone Number'],
   fetching: false,
   fetched: false,
   error: null
@@ -7,16 +7,16 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_ANALYZE_PENDING': {
+    case 'FETCH_FILTERS_PENDING': {
       return {...state, fetching: true}
     }
-    case 'FETCH_ANALYZE_REJECTED': {
+    case 'FETCH_FILTERS_REJECTED': {
       return {...state, fetching: false, error: action.payload}
     }
-    case 'FETCH_ANALYZE_FULFILLED':
+    case 'FETCH_FILTERS_FULFILLED':
       return {
         ...state,
-        findings: action.payload.data.analyzeResults || [],
+        filters: action.payload.data.filters,
         fetching: false,
         fetched: true,
         error: null

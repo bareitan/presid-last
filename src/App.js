@@ -1,29 +1,30 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Demo from './components/Demo/Demo';
-import Header from './components/Header/Header';
+import DemoPage from './components/DemoPage';
+import Header from './components/Header';
 import './App.css';
 import configureStore from './configureStore';
-import { setFilters } from './actions';
 
 const store = configureStore();
 
-const filters = ["credit","email"]
-
-store.dispatch(setFilters(filters));
-const App = () => (
-  <Provider store={store}>
-    <BrowserRouter>
-      <div>
-        <Header />
+class App extends React.Component  
+{
+  render() {
+    return (
+      <Provider store={store}>
+      <BrowserRouter>
         <div>
-          <Route exact path="/" component={Demo} />
-          <Route exact path="/demo" component={Demo} />
+          <Header />
+          <div>
+            <Route exact path="/" component={DemoPage} />
+            <Route exact path="/demo" component={DemoPage} />
+          </div>
         </div>
-      </div>
-    </BrowserRouter>
-  </Provider>
-);
+      </BrowserRouter>
+    </Provider>
+    )
+  }
+}
 
 export default App;

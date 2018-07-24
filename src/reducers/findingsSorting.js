@@ -1,4 +1,4 @@
-import { FindingsSorting } from '../actions';
+import { FindingsSorting } from '../actions/findingsSorting';
 import { SET_SORTING } from '../constants/action-types';
 
 const initialState = FindingsSorting.SORT_CERTAINITY;

@@ -15,7 +15,7 @@ const FiltersList = ({filters}) => (
       </thead>
       <tbody>
       {
-        filters.map((filter, id) => <FilterItem key={id} filter={filter} />)
+        filters.map((filter, id) => <FilterItem key={id} {...filter} />)
         }            
         </tbody>
     </table>

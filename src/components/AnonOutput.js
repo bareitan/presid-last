@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 const AnonOutput = ({ anonText }) => (
   <div className="white">
     <p className="has-text-weight-bold">Output text:</p>
-    <div className="box white output">{anonText}</div>
+    <div className="white output">{anonText}</div>
   </div>
 );
 

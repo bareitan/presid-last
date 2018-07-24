@@ -14,6 +14,7 @@ export default (state = initialState, action) => {
       return {...state, fetching: false, error: action.payload}
     }
     case 'FETCH_ANALYZE_FULFILLED':
+      console.log('returned analyze:',action.payload.data.analyzeResults)
       return {
         ...state,
         findings: action.payload.data.analyzeResults || [],

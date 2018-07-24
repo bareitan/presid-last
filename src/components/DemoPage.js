@@ -6,26 +6,26 @@ import FiltersList from './FiltersList';
 import FindingsList from './FindingsList';
 
 const DemoPage = () => (
-  <div>
+  <div className="container">
     <div className="columns">
-      <div className="column is-2 box">
+      <div className="column is-narrow box">
         <FiltersList />
       </div>
-      <div className="column">
+      <div className="column box">
         <div className="columns">
-          <div className="column is-half">
+          <div className="column is-half ">
             <div className="box">
               <UserText />
             </div>
           </div>
-          <div className="test column is-half">
+          <div className="column is-half">
             <div className="box output">
               <AnonOutput />
             </div>
           </div>
         </div>
-        <div className="column">
-          <div className="box">
+        <div className="column box">
+          <div>
             <FindingsList />
           </div>
         </div>

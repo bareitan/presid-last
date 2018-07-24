@@ -4,7 +4,7 @@ import logo from "./logo-small.png";
 
 const Header = () => (
   <div
-    className="navbar is-light"
+    className="navbar has-background-link is-link"
     role="navigation"
     aria-label="main navigation"
   >
